@@ -1,0 +1,53 @@
+# This workflows will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+
+    branches: [ staging ]
+  pull_request:
+    branches: [ staging ]
+
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    
+#     - name: Use Node.js
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: '14.x'
+        
+    - run: echo "Hello"
+    
+#     - run: npm run build --if-present
+#     - run: npx webdriver-manager update --versions.chrome=86.0.4240.22
+#     - run: npm install protractor
+#     - run: npm audit fix --force       
+    
+#     - run: npm run apitests   
+           
+#     - name: Archive code coverage results
+#       if: always()
+#       uses: actions/upload-artifact@v2
+#       with:
+#           name: automation-report
+#           path: .\.tmp
+        
+#     - name: Report1
+#       if: always()
+#       uses: deblockt/cucumber-report-annotations-action@v1.7
+#       with:
+#           access-token: ${{ secrets.GITHUB_TOKEN }}
+#           path: .\.tmp\results.json
